@@ -47,4 +47,5 @@ node default {
 #  }
   include users
   include hosts
+  include skeleton
 }

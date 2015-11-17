@@ -4,6 +4,6 @@ class skelton {
   }
   file { '/etc/skel/.bashrc':
     ensure => file,
-    source => 'puppet:///modules/classroom-control-vf/.bashrc',
+    source => 'puppet:///modules/skeleton/.bashrc',
   }
 }

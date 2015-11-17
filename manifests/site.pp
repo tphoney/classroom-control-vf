@@ -46,4 +46,5 @@ node default {
 #    owner   => 'root',
 #  }
   include users
+  include hosts
 }

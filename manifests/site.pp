@@ -45,8 +45,8 @@ node default {
 #    content => 'i think i learned something',
 #    owner   => 'root',
 #  }
-  include users
-  include hosts
-  include skeleton
-  include motd
+#  include users
+#  include hosts
+#  include skeleton
+#  include motd
 }

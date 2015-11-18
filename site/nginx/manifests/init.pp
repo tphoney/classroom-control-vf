@@ -1,22 +1,26 @@
 class nginx {
+  $http_dir = '/var/www/'
+  $nginx_dir = '/var/www/'
+
+  
   package { 'nginx':
     ensure => present,
   }
   
-  file { '/etc/nginx/nginx.conf':
+  file { '${nginx}/nginx.conf':
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
   }
-  file { '/etc/nginx/conf.d/default.conf':
+  file { '${nginx}/conf.d/default.conf':
     ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],
     notify => Service['nginx'],
   }
-  file { "/var/www":
+  file { "${http_dir}":
     ensure => directory
   }
-  file { "/var/www/index.html":
+  file { "${http_dir}/index.html":
     ensure => file,
     source => 'puppet:///modules/nginx/index.html',
     require => Package['nginx'],

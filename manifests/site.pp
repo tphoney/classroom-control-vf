@@ -40,7 +40,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
-  if $::$virtual != "physical" {
+  if $::virtual != "physical" {
     $bla  = capitalize ($::virtual)
     notify {"${bla}":}
   }

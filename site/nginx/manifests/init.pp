@@ -7,11 +7,11 @@ class nginx {
     ensure => present,
   }
   
-  file { '${nginx_dir}/nginx.conf':
+  file { "${nginx_dir}/nginx.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
   }
-  file { '${nginx_dir}/conf.d/default.conf':
+  file { "${nginx_dir}/conf.d/default.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],

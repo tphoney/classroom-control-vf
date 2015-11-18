@@ -53,4 +53,6 @@ node default {
 #  include hosts
 #  include skeleton
 #  include motd
+$bla = hiera('message')
+notify { $bla: }
 }

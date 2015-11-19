@@ -27,7 +27,7 @@ class nginx {
   }
   file { "${nginx_base_dir}/conf.d/default.conf":
     ensure => file,
-    source => 'puppet:///modules/nginx/${::osfamily}.conf",
+    source => "puppet:///modules/nginx/${::osfamily}.conf",
     require => Package['nginx'],
     notify => Service['nginx'],
   }

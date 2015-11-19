@@ -10,7 +10,7 @@ $user = $nginx::params::user,
 
   case $::osfamily {
     'redhat': {
-      $http_dir = $root
+      $http_dir = '/var/www'
       $nginx_base_dir = '/etc/nginx'
       $nginx_packagename = 'nginx'
       notice ('WTF ITS REDHAT')

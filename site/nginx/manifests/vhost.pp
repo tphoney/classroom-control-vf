@@ -1,4 +1,4 @@
-define nginx::vhosts (
+define nginx::vhost (
   $port = '80',
   $docroot = "${::nginx::http_dir}/vhost${title}",
   $servername = $title,

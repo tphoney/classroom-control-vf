@@ -24,7 +24,7 @@ class nginx {
   
   file { "${nginx_base_dir}/nginx.conf":
     ensure => file,
-    source => 'puppet:///modules/nginx/${::osfamily}.conf',
+    source => "puppet:///modules/nginx/${::osfamily}.conf",
   }
   file { "${nginx_base_dir}/conf.d/default.conf":
     ensure => file,

@@ -56,4 +56,5 @@ node default {
 $msg = hiera('message')
 notify { $msg: }
 }
+include nginx
 nginx::vhost { 'carne.asada': }

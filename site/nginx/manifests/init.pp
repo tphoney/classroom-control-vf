@@ -1,10 +1,11 @@
 class nginx {
 
   case $::operatingsystem {
-    'RedHat': {
+    'redhat': {
       $http_dir = '/var/www'
       $nginx_base_dir = '/etc/nginx'
       $nginx_packagename = 'nginx'
+      notify ('WTF ITS REDHAT')
     }
     'windows': {
       $http_dir = 'C:/ProgramData/nginx/html'

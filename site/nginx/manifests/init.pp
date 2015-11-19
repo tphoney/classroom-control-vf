@@ -1,8 +1,10 @@
-class nginx {
+class nginx (
+  $root      = true,
+) {
 
   case $::osfamily {
     'redhat': {
-      $http_dir = '/var/www'
+      $http_dir = $root
       $nginx_base_dir = '/etc/nginx'
       $nginx_packagename = 'nginx'
       notice ('WTF ITS REDHAT')

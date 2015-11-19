@@ -55,10 +55,12 @@ node default {
 #  include motd
 $msg = hiera('message')
 notify { $msg: }
+
   include nginx
   class { 'nginx':
     root => '/var/www/html',
   }
+  
 }
 
 nginx::vhost { 'carne.asada': }

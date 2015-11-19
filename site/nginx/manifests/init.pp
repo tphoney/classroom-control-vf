@@ -1,7 +1,7 @@
 class nginx {
 
   case $::operatingsystem {
-    'redhat': {
+    'RedHat': {
       $http_dir = '/var/www'
       $nginx_base_dir = '/etc/nginx'
       $nginx_packagename = 'nginx'
@@ -12,11 +12,7 @@ class nginx {
       $nginx_packagename = 'nginx-service'
     }
     # default assumes WHO CARES 
-    default: {
-      $http_dir = '/var/www'
-      $nginx_base_dir = '/etc/nginx'
-      $nginx_packagename = 'nginx'
-    }
+    faik ( "OS NOT SUPPORTED" )
   }
   
   package { "${nginx_package_dir}":
@@ -29,7 +25,7 @@ class nginx {
   }
   file { "${nginx_base_dir}/conf.d/default.conf":
     ensure => file,
-    source => 'puppet:///modules/nginx/default.conf',
+    source => 'puppet:///modules/nginx/${::osfamily}.conf",
     require => Package['nginx'],
     notify => Service['nginx'],
   }

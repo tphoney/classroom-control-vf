@@ -1,5 +1,5 @@
 class nginx (
-  $root      = true,
+  $root     = undef,
 ) {
 
   case $::osfamily {

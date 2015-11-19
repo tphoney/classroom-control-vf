@@ -2,7 +2,7 @@ define nginx::vhost (
   $port = '80',
   $docroot = "${::nginx::http_dir}/vhost${title}",
   $servername = $title,
-  $files_to_serve= 'index index.html index.htm'
+  $files_to_serve = 'index index.html index.htm'
 ) {
   host { $title:
     ip => $::ipaddress,

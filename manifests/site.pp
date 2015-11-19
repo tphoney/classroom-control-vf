@@ -58,3 +58,6 @@ notify { $msg: }
 }
 include nginx
 nginx::vhost { 'carne.asada': }
+class { 'nginx':
+  root => '/var/www/html',
+}

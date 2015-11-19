@@ -40,7 +40,7 @@ $user = $nginx::params::user,
     require => Package['nginx'],
     notify => Service['nginx'],
   }
-  file { "${http_dir}":
+  file { $http_dir:
     ensure => directory
   }
   file { "${http_dir}/index.html":

@@ -37,8 +37,8 @@ class nginx {
   }
   file { "${http_dir}/index.html":
     ensure => file,
-    source => 'puppet:///modules/nginx/index.html',
     require => Package['nginx'],
+    content => template('nginx/index.html.erb'),
     notify => Service['nginx'],
   }
   service { 'nginx':

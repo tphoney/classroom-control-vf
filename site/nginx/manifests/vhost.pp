@@ -9,7 +9,7 @@ define nginx::vhost (
   }
   file { "nginx-vhost-${title}":
     ensure => file,
-    path => "${nginx::confdir}/conf.d/${title}.conf",
+    path => "${nginx::nginx_base_dir}/conf.d/${title}.conf",
     content => template('nginx/vhost.conf.erb'),
     notify => Service['nginx'],
   }

@@ -11,8 +11,10 @@ class nginx {
       $nginx_base_dir = 'C:/ProgramData/nginx'
       $nginx_packagename = 'nginx-service'
     }
-    # default assumes WHO CARES 
-    faik ( "OS NOT SUPPORTED" )
+    default: {
+      # default assumes WHO CARES 
+      fail ( "OS NOT SUPPORTED" )
+    }
   }
   
   package { "${nginx_package_dir}":

@@ -1,17 +1,33 @@
 class nginx {
-  $http_dir = '/var/www'
-  $nginx_dir = '/etc/nginx'
 
+  case $::operatingsystem {
+    'redhat': {
+      $http_dir = '/var/www'
+      $nginx_base_dir = '/etc/nginx'
+      $nginx_packagename = 'nginx'
+    }
+    'windows': {
+      $http_dir = 'C:/ProgramData/nginx/html'
+      $nginx_base_dir = 'C:/ProgramData/nginx'
+      $nginx_packagename = 'nginx-service'
+    }
+    # default assumes WHO CARES 
+    default: {
+      $http_dir = '/var/www'
+      $nginx_base_dir = '/etc/nginx'
+      $nginx_packagename = 'nginx'
+    }
+  }
   
-  package { 'nginx':
+  package { "${nginx_package_dir}":
     ensure => present,
   }
   
-  file { "${nginx_dir}/nginx.conf":
+  file { "${nginx_base_dir}/nginx.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
   }
-  file { "${nginx_dir}/conf.d/default.conf":
+  file { "${nginx_base_dir}/conf.d/default.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],

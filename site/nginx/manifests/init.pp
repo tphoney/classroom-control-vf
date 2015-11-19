@@ -18,7 +18,7 @@ class nginx {
     }
   }
   
-  package { "${nginx_package_dir}":
+  package { "${nginx_packagename}":
     ensure => present,
   }
   

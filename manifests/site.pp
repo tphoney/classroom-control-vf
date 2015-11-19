@@ -55,8 +55,8 @@ node default {
 #  include motd
 $msg = hiera('message')
 notify { $msg: }
+nginx::vhost { 'carne.asada': }
 
 }
 
-nginx::vhost { 'carne.asada': }
 

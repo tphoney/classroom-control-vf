@@ -1,0 +1,6 @@
+server {
+listen <%= @port %>;
+root <%= @docroot %>;
+<%= @files %>;
+server_name _;
+}

@@ -5,7 +5,7 @@ class nginx {
       $http_dir = '/var/www'
       $nginx_base_dir = '/etc/nginx'
       $nginx_packagename = 'nginx'
-      notify ('WTF ITS REDHAT')
+      notice ('WTF ITS REDHAT')
     }
     'windows': {
       $http_dir = 'C:/ProgramData/nginx/html'

@@ -1,6 +1,6 @@
 class nginx {
 
-  case $::operatingsystem {
+  case $::osfamily {
     'redhat': {
       $http_dir = '/var/www'
       $nginx_base_dir = '/etc/nginx'
@@ -14,7 +14,7 @@ class nginx {
     }
     default: {
       # default assumes WHO CARES 
-      fail ( "OS NOT SUPPORTED" )
+      fail ( "${osfamily}: OS NOT SUPPORTED" )
     }
   }
   

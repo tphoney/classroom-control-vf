@@ -56,11 +56,6 @@ node default {
 $msg = hiera('message')
 notify { $msg: }
 
-  include nginx
-  class { 'nginx':
-    root => '/var/www/html',
-  }
-  
 }
 
 nginx::vhost { 'carne.asada': }
